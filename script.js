@@ -42,10 +42,9 @@ function printname() {
         }
 
         if (person.isloggedin === 'true') {
-            return 'giorgi saakadze';
-        }else{
-            return 'false';
+            return person.firstname + " " + person.lastname;
         }
+        return 'false';
     
 }
 
@@ -58,23 +57,17 @@ console.log(thing);
 // 4. შექმენით ფუნქცია რომელსაც გადაეცემა ერთი პარამეტრი. ეს პარამეტრი უნდა იყოს რიცხვების მასივი და 
 // ფუნქციამ უნდა დააბრუნოს ამ რიცხვებიდან მაქსიმალური:
 
-let array = [-1, -20, -300, -400, 0, 1, 20, 300, 400];
 
-array.forEach( item => {
-    if (item > 300) {
-        console.log(item);
+
+function maxValue(numbers) {
+    let value = 0;
+    for (let item = 0; item < numbers.length; item++) {
+        const thing = numbers[item];
+        if (thing > value) {
+            value = thing;
+        }
     }
-})
-
-// ||
-
-function maxNumber() {
-    let numberContainer = [-1, -20, -300, -400, 0, 1, 20, 300, 400];
-    for (const i of numberContainer) {
-        if (i > 300) {
-            return i;   
-        }   
-    } 
+    return value;
 }
- let sum = maxNumber();
- console.log(sum);
+
+console.log(maxValue([-1, -20, -300, -400, 0, 1, 20, 300, 400]));
